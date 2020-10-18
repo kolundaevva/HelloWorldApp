@@ -28,6 +28,9 @@
                                 <state key="normal" title="Start">
                                     <color key="titleColor" systemColor="labelColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="switchButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="3X7-C9-2de"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="nMU-Ya-QSS">
                                 <rect key="frame" x="147" y="123" width="120" height="520"/>
@@ -62,10 +65,16 @@
                             <constraint firstItem="nMU-Ya-QSS" firstAttribute="centerX" secondItem="cYj-aW-JDw" secondAttribute="centerX" id="oBS-ar-4OR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="greenColorTrafficLightView" destination="Urn-Ln-OXB" id="j0t-Ly-DUY"/>
+                        <outlet property="redColorTrafficLightView" destination="Vez-kJ-AcT" id="xSh-Ur-YAV"/>
+                        <outlet property="switcherButtor" destination="cYj-aW-JDw" id="obe-EA-R0F"/>
+                        <outlet property="yellowColorTrafficLightView" destination="uiM-ov-5lI" id="llq-Cr-C55"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-78.260869565217391" y="-6.0267857142857144"/>
+            <point key="canvasLocation" x="97" y="-3"/>
         </scene>
     </scenes>
     <resources>
