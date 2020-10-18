@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum CurrentLight {
+    case red, yellow, green
+}
+
 class ViewController: UIViewController {
 
     @IBOutlet var redColorTrafficLightView: UIView!
@@ -15,32 +19,37 @@ class ViewController: UIViewController {
     
     @IBOutlet var switcherButtor: UIButton!
     
+    var light = CurrentLight.red
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         redColorTrafficLightView.alpha = 0.3
         yellowColorTrafficLightView.alpha = 0.3
         greenColorTrafficLightView.alpha = 0.3
         
-        redColorTrafficLightView.layer.cornerRadius = 55
-        yellowColorTrafficLightView.layer.cornerRadius = 55
-        greenColorTrafficLightView.layer.cornerRadius = 55
+        redColorTrafficLightView.layer.cornerRadius = redColorTrafficLightView.frame.height / 2
+        yellowColorTrafficLightView.layer.cornerRadius = redColorTrafficLightView.frame.height / 2
+        greenColorTrafficLightView.layer.cornerRadius = redColorTrafficLightView.frame.height / 2
         switcherButtor.layer.cornerRadius = 10
     }
 
     @IBAction func switchButton() {
-        if redColorTrafficLightView.alpha != 1, yellowColorTrafficLightView.alpha != 1{
+        
+        switcherButtor.setTitle("Next", for: .normal)
+        
+        switch light {
+        case .red:
             greenColorTrafficLightView.alpha = 0.3
             redColorTrafficLightView.alpha = 1
-            switcherButtor.setTitle("Next", for: .normal)
-        } else if yellowColorTrafficLightView.alpha != 1 {
+            light = .yellow
+        case .yellow:
             redColorTrafficLightView.alpha = 0.3
             yellowColorTrafficLightView.alpha = 1
-            switcherButtor.setTitle("Next", for: .normal)
-        } else {
-            redColorTrafficLightView.alpha = 0.3
+            light = .green
+        case .green:
             yellowColorTrafficLightView.alpha = 0.3
             greenColorTrafficLightView.alpha = 1
-            switcherButtor.setTitle("Next", for: .normal)
+            light = .red
         }
     }
     
